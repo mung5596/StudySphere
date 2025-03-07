@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {% include "form_errors.html" %}
+
+    <div class="bg-light p-4 rounded" style="max-width: 500px; margin: auto;">
+        <h2 class="text-center mb-4">Login</h2>
+
+        <div class="mb-3 mx-5">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+        <div class="mb-4 mx-5">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.value|default_if_none:'' }}">
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mx-5">Login</button>
+        </div>
+
+        <div class="text-center mt-3">
+            <p class="m-0">Not a member? <a href="{% url 'signup' %}">Sign up</a></p>
+        </div>
+        <div class="text-center mt-2 p-0">
+            <p class="m-0">Forgot password? <a href="{% url 'password_reset' %}">Reset password</a></p>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

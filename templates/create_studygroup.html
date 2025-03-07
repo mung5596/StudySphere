@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">Create a study group</h5>
+    <form method="post">
+        {% csrf_token %}
+        {% include "form_errors.html" %}
+        <label for="name" class="form-label">Study group name</label>
+        <input type="text" class="form-control mb-4 w-25" name="name" id="name"
+               value="{{ form.name.value|default_if_none:'' }}">
+
+
+        <div class="mb-4 row w-50 justify-content-between">
+            <div class="col-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject"
+                    value="{{ form.subject.value|default_if_none:'' }}">
+            </div>
+
+            <div class="col-3">
+                <label for="venue" class="form-label">Venue</label>
+                <input type="text" class="form-control" name="venue" id="venue"
+                   value="{{ form.venue.value|default_if_none:'' }}">
+            </div>
+
+            <div class="col-2">
+                <label for="year_group" class="form-label">Year group</label>
+                <input type="number" class="form-control" name="year_group" id="year_group" min="7" max="13"
+                   value="{{ form.year_group.value|default_if_none:'' }}">
+            </div>
+        </div>
+
+        <div class="mb-4 row w-50 justify-content-between">
+            <div class="col-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="date" id="date"
+                    value="{{ form.date.value|default_if_none:'' }}">
+            </div>
+
+            <div class="col-3">
+                <label for="start_time" class="form-label">Starting time</label>
+                <input type="time" class="form-control" name="start_time" id="start_time"
+                   value="{{ form.start_time.value|default_if_none:'' }}">
+            </div>
+
+            <div class="col-3">
+                <label for="end_time" class="form-label">Ending time</label>
+                <input type="time" class="form-control" name="end_time" id="end_time"
+                   value="{{ form.end_time.value|default_if_none:'' }}">
+            </div>
+        </div>
+
+        <label for="max_people" class="form-label">Maximum number of people</label>
+        <input type="number" class="form-control mb-4" name="max_people" id="max_people" min="2" style="width: 80px"
+           value="{{ form.max_people.value|default_if_none:'' }}">
+
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control mb-4" name="description" id="description">{{ form.description.value|default_if_none:'' }}</textarea>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

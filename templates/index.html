@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5 text-center">
+    <h1>Welcome to StudySphere!</h1>
+    <p>Your go-to platform for learning and collaboration.</p>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Explore Study Groups</h5>
+                    <p class="card-text">Discover and join study groups that match your interests.</p>
+                    <a href="{% url 'studygroup' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Ask a Question</h5>
+                    <p class="card-text">Have a question? Reach out to the community for help.</p>
+                    <a href="{% url 'question' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
