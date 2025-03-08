@@ -21,12 +21,19 @@ import views
 urlpatterns = [
     # admin page
     path("admin/", admin.site.urls),
+
     # main page
     path("", views.index, name="index"),
+
     # studygroup functionality
     path("studygroup/", include("studygroup.urls")),
+
     # Q&A functionality
     path("Q&A/", include("question.urls")),
+
     # user functionality
     path("user/", include("user.urls")),
+
 ]
+
+handler404 = 'views.page_not_found'
