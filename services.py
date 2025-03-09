@@ -5,15 +5,15 @@ import threading
 
 def send_email(subject, body, recipient_list, from_email=None):
     """
-    이메일을 비동기로 전송하는 유틸리티 함수
+    Utility function that sends email in an asynchronous way
     """
     if not from_email:
-        from_email = settings.DEFAULT_FROM_EMAIL  # 기본 발신 이메일 설정
+        from_email = settings.DEFAULT_FROM_EMAIL  # sets the default email address
 
-    # 이메일 전송 작업을 실행하는 내부 함수
+    # Inner function that sends the email using SMTP
     def send():
         try:
-            # 이메일 메시지 생성
+            # create email message
             email = EmailMessage(
                 subject=subject,
                 body=body,
@@ -21,12 +21,12 @@ def send_email(subject, body, recipient_list, from_email=None):
                 to=recipient_list,
             )
 
-            # 이메일 전송
+            # send email
             email.send(fail_silently=False)
             print("이메일이 성공적으로 전송되었습니다!")
         except Exception as e:
             print(f"이메일 전송 중 오류 발생: {e}")
 
-    # threading을 사용해 비동기로 이메일 전송
+    # asynchronous operation using threads
     email_thread = threading.Thread(target=send)
     email_thread.start()
