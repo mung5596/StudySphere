@@ -35,6 +35,7 @@ def join_studygroup(request, group_id):
         messages.warning(request, "Please login or sign up first")
         return redirect("studygroup")
 
+    # fetch the study group
     study_group = StudyGroup.objects.get(id=group_id)
 
     # when study group is full
@@ -42,9 +43,11 @@ def join_studygroup(request, group_id):
         messages.warning(request, "This study group is already full.")
         return redirect("studygroup")
 
+    # update the study group
     study_group.participants.add(request.user)
-    study_group.current_people += 1  # Update current people count
+    study_group.current_people += 1
     study_group.save()
+
     messages.success(request, "You have successfully joined the study group!")
 
     # send email
