@@ -33,7 +33,6 @@ urlpatterns = [
 
     # user functionality
     path("user/", include("user.urls")),
-
 ]
 
 handler404 = 'views.page_not_found'
