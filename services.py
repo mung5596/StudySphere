@@ -1,6 +1,9 @@
 from django.core.mail import EmailMessage
 from django.conf import settings
 import threading
+import logging
+
+logger = logging.getLogger('email')
 
 
 def send_email(subject, body, recipient_list, from_email=None):
@@ -23,9 +26,9 @@ def send_email(subject, body, recipient_list, from_email=None):
 
             # send email
             email.send(fail_silently=False)
-            print("이메일이 성공적으로 전송되었습니다!")
+            logger.info("Email has been sent successfully.")
         except Exception as e:
-            print(f"이메일 전송 중 오류 발생: {e}")
+            logger.error(f"Error occurred while sending email: {e}")
 
     # asynchronous operation using threads
     email_thread = threading.Thread(target=send)

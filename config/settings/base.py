@@ -198,5 +198,9 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
+        'email': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
     }
 }
