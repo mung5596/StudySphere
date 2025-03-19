@@ -42,15 +42,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'mypage' %}">My page</a>
                 </li>
+<!--            Post method for safe logout-->
                 <li>
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button type="submit" class="nav-link" onclick="return confirm('Are you sure you want log out?')">Logout</button>
+                        <button type="submit" class="nav-link border-0 bg-transparent" onclick="return confirm('Are you sure you want log out?')">Logout</button>
                     </form>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="{% url 'logout' %}" onclick="return confirm('Are you sure you want log out?');">Logout</a>-->
-<!--                </li>-->
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
