@@ -56,7 +56,9 @@ def join_studygroup(request, group_id):
         f"{request.user.first_name} {request.user.last_name} has joined your {study_group.name} study group. You "
         f"now have {study_group.current_people} out of {study_group.max_people} in your study group. "
     )
-    recipient_list = [study_group.creator.email]
+    recipient_list = []
+    for participant in study_group.participants.all():
+        recipient_list.append(participant.email)
     send_email(subject, body, recipient_list)
 
     return redirect("studygroup")
@@ -94,7 +96,7 @@ def cancel_studygroup(request, group_id):
     recipient_list = []
     for participant in study_group.participants.all():
         recipient_list.append(participant.email)
-        print(recipient_list)
+
     send_email(subject, body, recipient_list)
 
     return redirect("studygroup")
