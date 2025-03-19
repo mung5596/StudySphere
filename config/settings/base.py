@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import ssl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -142,3 +143,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "studyspheremanager@gmail.com"
 EMAIL_HOST_PASSWORD = "rmej ciyo dmrc ulca"
 DEFAULT_FROM_EMAIL = "studyspheremanager@gmail.com"
+EMAIL_OPTIONS = {'ssl_context': ssl.create_default_context()}
