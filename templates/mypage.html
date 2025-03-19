@@ -29,6 +29,7 @@
                 </p>
             </div>
 
+            <!--Study group details and buttons-->
             <div id="collapse-{{ forloop.counter0 }}" class="collapse">
                 <div class="card-body">
                     <p><strong>Status:</strong> {{ studygroup.get_status_display }}</p>
@@ -36,10 +37,10 @@
                     <p><strong>Subject:</strong> {{ studygroup.subject }}</p>
                     <p><strong>Venue:</strong> {{ studygroup.venue }}</p>
                     <p><strong>Date:</strong> {{ studygroup.date }}</p>
-                    <p><strong>Start time:</strong> {{ studygroup.startTime }}</p>
-                    <p><strong>End time:</strong> {{ studygroup.endTime }}</p>
-                    <p><strong>Year group:</strong> Y{{ studygroup.yearGroup }}</p>
-                    <p><strong>Current enrollment:</strong> {{ studygroup.currentPeople }}/{{ studygroup.maxPeople }}</p>
+                    <p><strong>Start time:</strong> {{ studygroup.start_time }}</p>
+                    <p><strong>End time:</strong> {{ studygroup.end_time }}</p>
+                    <p><strong>Year group:</strong> Y{{ studygroup.year_group }}</p>
+                    <p><strong>Current enrollment:</strong> {{ studygroup.current_people }}/{{ studygroup.max_people }}</p>
                     <p><strong>Participants:</strong> {% for participant in studygroup.participants.all %}
                         {{ participant }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
