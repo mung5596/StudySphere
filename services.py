@@ -11,7 +11,7 @@ def send_email(subject, body, recipient_list, from_email=None):
         from_email = settings.DEFAULT_FROM_EMAIL  # sets the default email address
 
     # Inner function that sends the email using SMTP
-    def send():
+    def async_send():
         # create email message
         email = EmailMessage(
             subject=subject,
@@ -24,5 +24,5 @@ def send_email(subject, body, recipient_list, from_email=None):
         email.send(fail_silently=False)
 
     # asynchronous operation using threads
-    email_thread = threading.Thread(target=send)
+    email_thread = threading.Thread(target=async_send)
     email_thread.start()

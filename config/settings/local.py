@@ -1,6 +1,6 @@
-'''
+"""
 Django settings used in the local environment.
-'''
+"""
 
 from .base import *
 
