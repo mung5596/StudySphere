@@ -6,7 +6,6 @@ from django.shortcuts import render
 
 
 def index(request):
-    print(3/0)  # testing logging
     return render(request, "index.html")
 
 

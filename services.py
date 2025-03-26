@@ -1,6 +1,8 @@
 from django.core.mail import EmailMessage
 from django.conf import settings
 import threading
+import logging
+logger = logging.getLogger('django')
 
 
 def send_email(subject, body, recipient_list, from_email=None):
@@ -21,6 +23,7 @@ def send_email(subject, body, recipient_list, from_email=None):
         )
 
         # send email
+        logger.info("Testing logger")
         email.send(fail_silently=False)
 
     # asynchronous operation using threads
