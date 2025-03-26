@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Question(models.Model):
-    # Django's id is used instead of QuestionID attribute
     creator = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
@@ -16,7 +15,6 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    # Django's id is used instead of AnswerID attribute
     creator = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField()

@@ -1,3 +1,7 @@
+'''
+Common views of the website
+'''
+
 from django.shortcuts import render
 
 

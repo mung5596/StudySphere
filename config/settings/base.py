@@ -141,6 +141,6 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = "studyspheremanager@gmail.com"
-EMAIL_HOST_PASSWORD = "rmej ciyo dmrc ulca"
+EMAIL_HOST_PASSWORD = "udtl ahkv jadl zgxf"
 DEFAULT_FROM_EMAIL = "studyspheremanager@gmail.com"
 EMAIL_OPTIONS = {'ssl_context': ssl.create_default_context()}
